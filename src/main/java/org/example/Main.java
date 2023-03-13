@@ -6,6 +6,15 @@ public class Main {
 
     public static void main(String[] args) {
 
+        TVShow t = new TVShow();
+
+        t.TVShow();
+
+        for(String actors : t.cast){
+
+            System.out.println(actors);
+        }
+
     }
 
     public static void runMenu(){
