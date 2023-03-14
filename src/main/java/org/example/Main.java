@@ -6,10 +6,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        TVShow t = new TVShow();
+        Movie t = new Movie();
 
         t.TVShow();
-
         for(String actors : t.cast){
 
             System.out.println(actors);
