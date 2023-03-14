@@ -1,36 +1,36 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
-class User {
-    /*
-    * The user should contain username password.
-    * The user should contain an ArrayList of favorite shows and watch history.
-    * FUNCTION: the user should have a function to watch a show and add it to watch history.
-    *  *** NOTE: All search functions in user are for searching in favorite shows ***
-    */
+public class User {
 
+    private String userName;
+    private String passWord;
 
-    public ArrayList<TVShow> searchByTitle(String title) {
-        // Implement search by title in favorite shows  logic here
-        return null;
+    Scanner input = new Scanner(System.in);
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
-    public ArrayList<TVShow> searchByGenre(String genre) {
-        // Implement search by genre in favorite shows  logic here
-        return null;
+
+    public String getUserName() {
+        return userName;
     }
-    public ArrayList<TVShow> searchByReleaseYear(int year) {
-        // Implement search by release year in favorite shows logic here
-        return null;
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
     }
-    public void addToFavorites(TVShow show) {
-        // Implement add to favorites logic here
+    public String getPassWord() {
+        return passWord;
     }
-    public void viewFavorites() {
-        // Implement view favorites logic here
-    }
-    public ArrayList<TVShow> getRecommendations() {
-        // Implement get recommendations logic here
-        return null;
+
+    public User(){
+
+        System.out.println("Enter user name:");
+        setUserName(input.nextLine());
+
+        System.out.println("Enter password:");
+        setPassWord(input.nextLine());
     }
 }

@@ -1,6 +1,8 @@
 package org.example;
+/*
+ *Movie is extended from TVShow and has extra attribute length.
+ */
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 class Movie extends TVShow {
@@ -19,14 +21,13 @@ class Movie extends TVShow {
         return length;
     }
 
-    /*
-     *Movie is extended from TVShow and has extra attribute length.
-     */
     public Movie()
     {
         super();
 
         System.out.println("Enter length");
         setLength(input.nextInt());
+
     }
+
 }

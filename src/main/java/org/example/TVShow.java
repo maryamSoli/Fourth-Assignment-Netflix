@@ -1,16 +1,21 @@
 package org.example;
+/*
+ *The TVShow should have a title , genre, release year, duration and a rating.
+ *The TVShow should have an ArrayList of the cast.
+ */
 
 import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class TVShow {
 
     private String title;
     private String genre;
-    private String releaseDate;
+    private String releaseYear;
     private int duration;
     private double rating;
-    ArrayList<String> cast = new ArrayList<String>();
+    ArrayList<String> cast = new ArrayList();
 
     Scanner input = new Scanner(System.in);
 
@@ -30,12 +35,12 @@ public class TVShow {
         return genre;
     }
 
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
+    public void setReleaseYear(String releaseYear) {
+        this.releaseYear = releaseYear;
     }
 
-    public String getReleaseDate() {
-        return releaseDate;
+    public String getReleaseYear() {
+        return releaseYear;
     }
 
     public void setDuration(int duration) {
@@ -84,7 +89,7 @@ public class TVShow {
         setGenre(input.nextLine());
 
         System.out.println("Enter release date:");
-        setReleaseDate(input.nextLine());
+        setReleaseYear(input.nextLine());
 
         System.out.println("Enter duration:");
         setDuration(input.nextInt());
@@ -96,10 +101,5 @@ public class TVShow {
         casts();
 
     }
-
-    /*
-    *The TVShow should have a title , genre, release year, duration and a rating.
-     *The TVShow should have an ArrayList of the cast.
-     */
 
 }

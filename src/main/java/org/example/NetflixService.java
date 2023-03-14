@@ -1,49 +1,270 @@
 package org.example;
+/*
+ *The NetflixService should have an Arraylist of users, tv shows and movies.
+ *The NetflixService should have a User object which represents current user.
+ */
 
 import java.util.ArrayList;
 
-class NetflixService {
-    /*
-     *The NetflixService should have an Arraylist of users, tv shows and movies.
-     *The NetflixService should have a User object which represents current user.
-     */
+import java.util.Scanner;
 
+class NetflixService {
+    ArrayList<TVShow> theTVshows = new ArrayList();
+    ArrayList<Movie> theMovies = new ArrayList();
+    Scanner input = new Scanner(System.in);
+
+
+
+    public int compareTVshows(TVShow t1, TVShow t2){
+
+        if (t1.getTitle().equalsIgnoreCase(t2.getTitle())){
+
+            System.out.println("Book of this title Already Exists.");
+
+            return 0;
+
+        }
+
+        return 1;
+
+    }
     public void addTVShow(TVShow tvShow){
-        // Implement add tv show logic here
+
+        for ( TVShow i : theTVshows) {
+
+            if (this.compareTVshows( tvShow , i) == 0)
+
+                return;
+        }
+
+        theTVshows.add(tvShow);
+    }
+
+    public int compareMovies(Movie m1, Movie m2){
+
+        if (m1.getTitle().equalsIgnoreCase(m2.getTitle())){
+
+            System.out.println("Movie of this title Already Exists.");
+
+            return 0;
+
+        }
+
+        return 1;
+
     }
 
     public void addMovie(Movie movie){
-        // Implement add movie logic here
+
+        for ( Movie i : theMovies) {
+
+            if (this.compareTVshows( movie , i) == 0)
+
+                return;
+        }
+
+        theMovies.add(movie);
     }
 
-    public void createAccount(String username, String password) {
-        // Implement create account logic here
-    }
 
-    public boolean login(String username, String password) {
-        // Implement login logic here
-        return false;
-    }
 
     public void logout() {
-        // Implement logout logic here
+        // Implement logout logic here IN MENY WRITE PRESS 'O' TO LOGOUT
     }
 
-    public ArrayList<TVShow> searchByTitle(String title) {
-        // Implement search by title logic here
-        return null;
+    public void TVSHOWsearchByTitle(){
+
+        System.out.println("SEARCH BY TITLE");
+
+        String title;
+
+        System.out.println("Enter title of TVshow:");
+
+        title = input.nextLine();
+
+        int flag = 0;
+
+        System.out.println("title - genre - release year - duration - rating - cast");
+
+        for (TVShow i : theTVshows ){
+
+            if (i.getTitle() == title){
+
+                System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast);
+
+                flag++;
+
+            }
+        }
+
+        if (flag == 0){
+
+            System.out.println("TVshow with title " + title + " not Found.");
+        }
+
     }
 
-    public ArrayList<TVShow> searchByGenre(String genre) {
-        // Implement search by genre logic here
-        return null;
+    public void TVSHOWsearchByGenre(){
+
+        System.out.println("SEARCH BY GENRE");
+
+        String genre;
+
+        System.out.println("Enter genre of TVshow:");
+
+        genre = input.nextLine();
+
+        int flag = 0;
+
+        System.out.println("title - genre - release year - duration - rating - cast");
+
+        for (TVShow i : theTVshows ){
+
+            if (i.getGenre() == genre){
+
+                System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast);
+
+                flag++;
+
+            }
+        }
+
+        if (flag == 0){
+
+            System.out.println("TVshow with genre " + genre + " not Found.");
+        }
+
     }
 
-    public ArrayList<TVShow> searchByReleaseYear(int year) {
-        // Implement search by release year logic here
-        return null;
+    public void TVSHOWsearchByReleaseYear(){
+
+        System.out.println("SEARCH BY RELEASE YEAR");
+
+        String releaseYear;
+
+        System.out.println("Enter release year of TVshow:");
+
+        releaseYear = input.nextLine();
+
+        int flag = 0;
+
+        System.out.println("title - genre - release year - duration - rating - cast");
+
+        for (TVShow i : theTVshows ){
+
+            if (i.getReleaseYear() == releaseYear){
+
+                System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast);
+
+                flag++;
+
+            }
+        }
+
+        if (flag == 0){
+
+            System.out.println("TVshow with release year " + releaseYear + " not Found.");
+        }
+
     }
 
+
+
+    public void MOVIEsearchByTitle(){
+
+        System.out.println("SEARCH BY TITLE YEAR movie");
+
+        String title;
+
+        System.out.println("Enter title of Movie:");
+
+        title = input.nextLine();
+
+        int flag = 0;
+
+        System.out.println("title - genre - release year - duration - rating - cast - length");
+
+        for (Movie i : theMovies ){
+
+            if (i.getReleaseYear() == title){
+
+                System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast + "\t\t" + i.getLength());
+
+                flag++;
+
+            }
+        }
+
+        if (flag == 0){
+
+            System.out.println("Movie with title " + title + " not Found.");
+        }
+
+    }
+
+    public void MOVIEsearchByGenre(){
+
+        System.out.println("SEARCH BY GENRE movie");
+
+        String genre;
+
+        System.out.println("Enter genre of Movie:");
+
+        genre = input.nextLine();
+
+        int flag = 0;
+
+        System.out.println("title - genre - release year - duration - rating - cast - length");
+
+        for (Movie i : theMovies ){
+
+            if (i.getGenre() == genre){
+
+                System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast + "\t\t" + i.getLength());
+
+                flag++;
+
+            }
+        }
+
+        if (flag == 0){
+
+            System.out.println("Movie with genre " + genre + " not Found.");
+        }
+
+    }
+
+    public void MOVIEsearchByReleaseYear(){
+
+        System.out.println("SEARCH BY RELEASE YEAR movie");
+
+        String releaseYear;
+
+        System.out.println("Enter release year of Movie:");
+
+        releaseYear = input.nextLine();
+
+        int flag = 0;
+
+        System.out.println("title - genre - release year - duration - rating - cast - length");
+
+        for (Movie i : theMovies ){
+
+            if (i.getReleaseYear() == releaseYear){
+
+                System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast + "\t\t" + i.getLength());
+
+                flag++;
+
+            }
+        }
+
+        if (flag == 0){
+
+            System.out.println("Movie with release year " + releaseYear + " not Found.");
+        }
+
+    }
 
 }
 
