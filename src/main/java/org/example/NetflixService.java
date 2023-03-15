@@ -58,7 +58,7 @@ class NetflixService {
 
         for ( Movie i : theMovies) {
 
-            if (this.compareTVshows( movie , i) == 0)
+            if (this.compareMovies( movie , i) == 0)
 
                 return;
         }
@@ -72,7 +72,7 @@ class NetflixService {
         // Implement logout logic here IN MENY WRITE PRESS 'O' TO LOGOUT
     }
 
-    public void TVSHOWsearchByTitle(){
+    public void TVshowSearchByTitle(){
 
         System.out.println("SEARCH BY TITLE tvshow");
 
@@ -104,7 +104,7 @@ class NetflixService {
 
     }
 
-    public void TVSHOWsearchByGenre(){
+    public void TVshowSearchByGenre(){
 
         System.out.println("SEARCH BY GENRE tvshow");
 
@@ -136,7 +136,7 @@ class NetflixService {
 
     }
 
-    public void TVSHOWsearchByReleaseYear(){
+    public void TVshowSearchByReleaseYear(){
 
         System.out.println("SEARCH BY RELEASE YEAR tvshow");
 
@@ -170,7 +170,7 @@ class NetflixService {
 
 
 
-    public void MOVIEsearchByTitle(){
+    public void MovieSearchByTitle(){
 
         System.out.println("SEARCH BY TITLE movie");
 
@@ -202,7 +202,7 @@ class NetflixService {
 
     }
 
-    public void MOVIEsearchByGenre(){
+    public void MovieSearchByGenre(){
 
         System.out.println("SEARCH BY GENRE movie");
 
@@ -234,7 +234,7 @@ class NetflixService {
 
     }
 
-    public void MOVIEsearchByReleaseYear(){
+    public void MovieSearchByReleaseYear(){
 
         System.out.println("SEARCH BY RELEASE YEAR movie");
 

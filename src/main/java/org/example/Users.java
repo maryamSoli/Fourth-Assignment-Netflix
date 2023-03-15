@@ -78,8 +78,23 @@ public class Users {
                 favoriteTVshows.add(i);
             }
         }
+    }
 
+    public void removeFromFavoritesTVshows(TVShow show , NetflixService shows) {
 
+        System.out.println("enter the title of the TVshow that you want to remove from your favorite list");
+
+        viewFavoritesTVshows();
+
+        String title  = input.nextLine();
+
+        for (TVShow i : favoriteTVshows){
+
+            if (title == i.getTitle()){
+
+                favoriteTVshows.remove(i);
+            }
+        }
     }
     public void viewFavoritesTVshows() {
 
@@ -109,8 +124,23 @@ public class Users {
                 favoriteMovies.add(i);
             }
         }
+    }
 
+    public void removeFromFavoritesMovies(Movie movie , NetflixService movies) {
 
+        System.out.println("enter the title of the movie that you want to remove from your favorite list");
+
+        viewFavoritesMovies();
+
+        String title  = input.nextLine();
+
+        for (Movie i : favoriteMovies){
+
+            if (title == i.getTitle()){
+
+                favoriteMovies.remove(i);
+            }
+        }
     }
     public void viewFavoritesMovies() {
 
