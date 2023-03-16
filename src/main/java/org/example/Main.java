@@ -16,9 +16,9 @@ public class Main {
         System.out.println("		                        WELLCOME  			 ");
         System.out.println("**********************************************************************");
 
-        NetflixService Nobj = new NetflixService();
+        NetflixService Nobj = new NetflixService(); // defining Nobj object from Netflix class
 
-        Users Uobj = new Users();
+        Users Uobj = new Users();// defining Uobj object from Users class
 
         int choice;
 
@@ -38,19 +38,21 @@ public class Main {
 
                     movieOrTVshowMenu();
 
-                    if (movieOrTVshowChoice == 1) {
+                    if (movieOrTVshowChoice == 1) // if TVshow is chosen
 
-                        TVShow t = new TVShow();
+                        {
 
-                        t.TVShow();
+                        TVShow t = new TVShow();//defining t object from TVshow class
 
-                        Nobj.addTVShow(t);
+                        t.TVShow();// calling TVshow method from TVshow class
+
+                        Nobj.addTVShow(t); // add TVshow
 
                     }
 
-                    else {
+                    else  { // if movie is chosen
 
-                        Movie m = new Movie();
+                        Movie m = new Movie();// defining m object from Movie class
 
                         m.TVShow();
 
@@ -63,7 +65,7 @@ public class Main {
 
                     movieOrTVshowMenu();
 
-                    if (movieOrTVshowChoice == 1) {
+                    if (movieOrTVshowChoice == 1) { //TVshow
 
                         System.out.println("press 1 to search with TITLE");
                         System.out.println("press 2 to search with GENRE");
@@ -73,19 +75,19 @@ public class Main {
 
                         switch (wholeSearchChoice) {
 
-                            case 1:
+                            case 1:// if wholeSearchChoice is 1
 
                                 Nobj.TVshowSearchByTitle();
 
                                 break;
 
-                            case 2:
+                            case 2:// if it is 2
 
                                 Nobj.TVshowSearchByGenre();
 
                                 break;
 
-                            case 3:
+                            case 3: // if it is 3
 
                                 Nobj.TVshowSearchByReleaseYear();
 
@@ -94,7 +96,7 @@ public class Main {
 
                     }
 
-                    else {
+                    else {   // Movie
 
                         System.out.println("press 1 to search with TITLE");
                         System.out.println("press 2 to search with GENRE");
@@ -156,18 +158,24 @@ public class Main {
 
                     break;
 
+
+                //here as already mentioned in the report from 6 to 11 can only be accessed if the login happened so here we use loginChecker boolean variable
+                //whenever it is true the operation will be done and whenever it is false the message " ypu can not access this section" will be shown
+
                 case 6:
 
                     if (Uobj.loginChecker == true) {
 
                         movieOrTVshowMenu();
 
-                        if (movieOrTVshowChoice == 1) {
+                        if (movieOrTVshowChoice == 1) { //TVshow
 
                             TVShow t = new TVShow();
 
                             Uobj.addToFavoritesTVshows(t, Nobj);
-                        } else {
+                        }
+
+                        else { //Movie
 
                             TVShow t = new TVShow();
 
@@ -175,7 +183,7 @@ public class Main {
                         }
                     }
 
-                    else {
+                    else { //loginChecker == false
 
                         System.out.println("You can not access this section.\nLogin first!");
                     }
@@ -188,12 +196,13 @@ public class Main {
 
                         movieOrTVshowMenu();
 
-                        if (movieOrTVshowChoice == 1) {
+                        if (movieOrTVshowChoice == 1) { //TVshow
 
                             TVShow t = new TVShow();
 
                             Uobj.removeFromFavoritesTVshows(t, Nobj);
-                        } else {
+                        }
+                        else {//Movie
 
                             TVShow t = new TVShow();
 
@@ -202,7 +211,7 @@ public class Main {
 
                     }
 
-                    else {
+                    else { //loginChecker == false
 
                         System.out.println("You can not access this section.\nLogin first!");
 
@@ -282,7 +291,7 @@ public class Main {
                         }
                     }
 
-                    else {
+                    else { //loginChecker == false
 
                         System.out.println("You can not access this section.\nLogin first!");
                     }
@@ -309,7 +318,7 @@ public class Main {
                         }
                     }
 
-                   else {
+                   else { //loginChecker == false
 
                         System.out.println("You can not access this section.\nLogin first!");
                     }
@@ -333,7 +342,7 @@ public class Main {
                         }
                     }
 
-                    else {
+                    else { //loginChecker == false
 
                         System.out.println("You can not access this section.\nLogin first!");
                     }
@@ -357,14 +366,14 @@ public class Main {
                         }
                     }
 
-                    else {
+                    else { //loginChecker == false
 
                         System.out.println("You can not access this section.\nLogin first!");
                     }
 
                     break;
 
-                case 12:
+                case 12: // this option is for logout so here the loginChecker must be false
 
                     Uobj.loginChecker = false;
 
@@ -379,7 +388,7 @@ public class Main {
         }
 
 
-            while (choice != 0) ;
+            while (choice != 0) ; //this will be looping until the  user enters 0 and the program will stop
 
     }
 
