@@ -6,9 +6,9 @@ public class Main {
     //don't limit yourself to our template ***
     static int movieOrTVshowChoice;
 
-   static TVShow t = new TVShow();
+  // static TVShow t = new TVShow();
 
-   static Movie m = new Movie();
+   //static Movie m = new Movie();
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
 
@@ -36,8 +36,12 @@ public class Main {
 
                     if (movieOrTVshowChoice == 1) {
 
+
+                        TVShow t = new TVShow();
+
                         Nobj.addTVShow(t);
                     } else {
+                        Movie m = new Movie();
 
                         Nobj.addMovie(m);
                     }
@@ -145,11 +149,13 @@ public class Main {
 
                     if (movieOrTVshowChoice == 1) {
 
+                        TVShow t = new TVShow();
+
                         Uobj.addToFavoritesTVshows(t , Nobj);
                     }
 
                     else {
-
+                        Movie m = new Movie();
                         Uobj.addToFavoritesMovies(m , Nobj);
                     }
 
@@ -161,11 +167,13 @@ public class Main {
 
                     if (movieOrTVshowChoice == 1) {
 
+                        TVShow t = new TVShow();
+
                         Uobj.removeFromFavoritesTVshows(t , Nobj);
                     }
 
                     else {
-
+                        Movie m = new Movie();
                         Uobj.removeFromFavoritesMovies(m , Nobj);
                     }
 
@@ -305,9 +313,9 @@ public class Main {
 
     public static void movieOrTVshowMenu() {
 
-        System.out.println("press 1 to add nem TVshow");
+        System.out.println("press 1 for TVshow");
 
-        System.out.println("press 2 to add nem movie");
+        System.out.println("press 2 for movie");
 
         movieOrTVshowChoice = input.nextInt();
     }

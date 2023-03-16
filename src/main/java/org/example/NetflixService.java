@@ -19,7 +19,7 @@ class NetflixService {
 
         if (t1.getTitle().equalsIgnoreCase(t2.getTitle())){
 
-            System.out.println("Book of this title Already Exists.");
+            System.out.println("tvshow of this title Already Exists.");
 
             return 0;
 
@@ -32,12 +32,16 @@ class NetflixService {
 
         for ( TVShow i : theTVshows) {
 
-            if (this.compareTVshows( tvShow , i) == 0)
+            if (this.compareTVshows( tvShow ,i) == 0)
 
                 return;
-        }
 
+        }
+        tvShow.TVShow();
         theTVshows.add(tvShow);
+
+
+
     }
 
     public int compareMovies(Movie m1, Movie m2){
@@ -61,16 +65,14 @@ class NetflixService {
             if (this.compareMovies( movie , i) == 0)
 
                 return;
+
         }
+
+        movie.TVShow();
 
         theMovies.add(movie);
     }
 
-
-
-    public void logout() {
-        // Implement logout logic here IN MENY WRITE PRESS 'O' TO LOGOUT
-    }
 
     public void TVshowSearchByTitle(){
 
