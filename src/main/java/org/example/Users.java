@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 public class Users {
 
+    public boolean loginChecker;
+
     ArrayList<User> theUsers = new ArrayList();
 
     ArrayList<TVShow> favoriteTVshows = new ArrayList();
@@ -53,6 +55,7 @@ public class Users {
             theUsers.add(u);
 
             System.out.println("Account Created !");
+
         }
 
 
@@ -75,6 +78,9 @@ public class Users {
                 System.out.println("Login Successfully!");
 
                 flag++;
+
+                loginChecker = true;
+
             }
 
         }
@@ -84,6 +90,9 @@ public class Users {
             System.out.println("User is not Registered.");
 
             System.out.println("Create Account First.");
+
+            loginChecker = false;
+
         }
 
     }

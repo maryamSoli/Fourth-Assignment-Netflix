@@ -12,6 +12,10 @@ public class Main {
 
     public static void main(String[] args) {
 
+        System.out.println("**********************************************************************");
+        System.out.println("		                        WELLCOME  			 ");
+        System.out.println("**********************************************************************");
+
         NetflixService Nobj = new NetflixService();
 
         Users Uobj = new Users();
@@ -154,167 +158,221 @@ public class Main {
 
                 case 6:
 
-                    movieOrTVshowMenu();
+                    if (Uobj.loginChecker == true) {
 
-                    if (movieOrTVshowChoice == 1) {
+                        movieOrTVshowMenu();
 
-                        TVShow t = new TVShow();
+                        if (movieOrTVshowChoice == 1) {
 
-                        Uobj.addToFavoritesTVshows(t , Nobj);
+                            TVShow t = new TVShow();
+
+                            Uobj.addToFavoritesTVshows(t, Nobj);
+                        } else {
+
+                            TVShow t = new TVShow();
+
+                            Uobj.addToFavoritesMovies(t, Nobj);
+                        }
                     }
 
                     else {
 
-                        TVShow t = new TVShow();
-
-                        Uobj.addToFavoritesMovies(t , Nobj);
+                        System.out.println("You can not access this section.\nLogin first!");
                     }
 
                     break;
 
                 case 7:
 
-                    movieOrTVshowMenu();
+                    if (Uobj.loginChecker == true) {
 
-                    if (movieOrTVshowChoice == 1) {
+                        movieOrTVshowMenu();
 
-                        TVShow t = new TVShow();
+                        if (movieOrTVshowChoice == 1) {
 
-                        Uobj.removeFromFavoritesTVshows(t , Nobj);
+                            TVShow t = new TVShow();
+
+                            Uobj.removeFromFavoritesTVshows(t, Nobj);
+                        } else {
+
+                            TVShow t = new TVShow();
+
+                            Uobj.removeFromFavoritesMovies(t, Nobj);
+                        }
+
                     }
 
                     else {
 
-                        TVShow t = new TVShow();
+                        System.out.println("You can not access this section.\nLogin first!");
 
-                        Uobj.removeFromFavoritesMovies(t , Nobj);
-                    }
+                        }
 
                     break;
 
 
                 case 8:
 
-                    movieOrTVshowMenu();
+                    if (Uobj.loginChecker == true){
 
-                    if (movieOrTVshowChoice == 1) {
+                        movieOrTVshowMenu();
 
-                        System.out.println("press 1 to search with TITLE");
-                        System.out.println("press 2 to search with GENRE");
-                        System.out.println("press 3 to search with RELEASE YEAR");
+                        if (movieOrTVshowChoice == 1) {
 
-                        favoriteSearchChoice = input.nextInt();
+                            System.out.println("press 1 to search with TITLE");
+                            System.out.println("press 2 to search with GENRE");
+                            System.out.println("press 3 to search with RELEASE YEAR");
 
-                        switch (favoriteSearchChoice) {
+                            favoriteSearchChoice = input.nextInt();
 
-                            case 1:
+                            switch (favoriteSearchChoice) {
 
-                                Uobj.TVshowSearchByTitleFavorites();
+                                case 1:
 
-                                break;
+                                    Uobj.TVshowSearchByTitleFavorites();
 
-                            case 2:
+                                    break;
 
-                                Uobj.TVshowSearchByGenreFavorites();
+                                case 2:
 
-                                break;
+                                    Uobj.TVshowSearchByGenreFavorites();
 
-                            case 3:
+                                    break;
 
-                                Uobj.TVshowSearchByReleaseYearFavorites();
+                                case 3:
 
-                                break;
+                                    Uobj.TVshowSearchByReleaseYearFavorites();
+
+                                    break;
+
+                            }
 
                         }
 
+                        else {
+
+                            System.out.println("press 1 to search with TITLE");
+                            System.out.println("press 2 to search with GENRE");
+                            System.out.println("press 3 to search with RELEASE YEAR");
+
+                            favoriteSearchChoice = input.nextInt();
+
+                            switch (favoriteSearchChoice) {
+
+                                case 1:
+
+                                    Uobj.MovieSearchByTitleFavorites();
+
+                                    break;
+
+                                case 2:
+
+                                    Uobj.MovieSearchByGenreFavorites();
+
+                                    break;
+
+                                case 3:
+
+                                    Uobj.MovieSearchByReleaseYearFavorites();
+
+                                    break;
+
+                            }
+
+                        }
                     }
 
                     else {
 
-                        System.out.println("press 1 to search with TITLE");
-                        System.out.println("press 2 to search with GENRE");
-                        System.out.println("press 3 to search with RELEASE YEAR");
-
-                        favoriteSearchChoice = input.nextInt();
-
-                        switch (favoriteSearchChoice) {
-
-                            case 1:
-
-                                Uobj.MovieSearchByTitleFavorites();
-
-                                break;
-
-                            case 2:
-
-                                Uobj.MovieSearchByGenreFavorites();
-
-                                break;
-
-                            case 3:
-
-                                Uobj.MovieSearchByReleaseYearFavorites();
-
-                                break;
-
-                        }
-
+                        System.out.println("You can not access this section.\nLogin first!");
                     }
+
 
                     break;
 
 
                 case 9:
 
-                    movieOrTVshowMenu();
+                    if (Uobj.loginChecker == true){
 
-                    if (movieOrTVshowChoice == 1) {
+                        movieOrTVshowMenu();
 
-                        Uobj.watchTVshow(Nobj);
+                        if (movieOrTVshowChoice == 1) {
+
+                            Uobj.watchTVshow(Nobj);
+                        }
+
+                        else {
+
+                            Uobj.watchMovie(Nobj);
+
+                        }
                     }
 
-                    else {
+                   else {
 
-                        Uobj.watchMovie(Nobj);
-
+                        System.out.println("You can not access this section.\nLogin first!");
                     }
 
                     break;
 
                 case 10:
 
-                    movieOrTVshowMenu();
+                    if (Uobj.loginChecker == true){
 
-                    if (movieOrTVshowChoice == 1) {
+                        movieOrTVshowMenu();
 
-                        Uobj.showWatchingHistoryForTVshows();
+                        if (movieOrTVshowChoice == 1) {
+
+                            Uobj.showWatchingHistoryForTVshows();
+                        }
+
+                        else {
+                            Uobj.showWatchingHistoryForMovies();
+
+                        }
                     }
 
                     else {
-                        Uobj.showWatchingHistoryForMovies();
 
+                        System.out.println("You can not access this section.\nLogin first!");
                     }
+
                     break;
 
                 case 11:
 
-                    movieOrTVshowMenu();
+                    if (Uobj.loginChecker == true){
 
-                    if (movieOrTVshowChoice == 1) {
+                        movieOrTVshowMenu();
 
-                        Uobj.getRecommendationBasedOnGenreTVshow(Nobj);
+                        if (movieOrTVshowChoice == 1) {
+
+                            Uobj.getRecommendationBasedOnGenreTVshow(Nobj);
+                        }
+
+                        else {
+
+                            Uobj.getRecommendationBasedOnGenreMovie(Nobj);
+                        }
                     }
 
                     else {
 
-                        Uobj.getRecommendationBasedOnGenreMovie(Nobj);
+                        System.out.println("You can not access this section.\nLogin first!");
                     }
+
+                    break;
+
+                case 12:
+
+                    Uobj.loginChecker = false;
 
                     break;
 
                 default:
 
-                    System.out.println("Thanks for Choosing Us !");
+                    System.out.println("COME BACK SOON :) !");
 
             }
 
@@ -342,7 +400,8 @@ public class Main {
         System.out.println("Press 9 to watch.");
         System.out.println("Press 10 to see watching history.");
         System.out.println("Press 11 to get Recommendations for TVshow or movie.");
-        System.out.println("Press 0 to logout");
+        System.out.println("Press 12 to logout");
+        System.out.println("Press 0 to Completely get out of the program");
         System.out.println("-------------------------------------------------------------------------------------------------------");
     }
 
@@ -358,7 +417,7 @@ public class Main {
         movieOrTVshowChoice = input.nextInt();
     }
 
-    
+
 
 }
 
