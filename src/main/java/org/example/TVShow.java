@@ -11,10 +11,15 @@ import java.util.Scanner;
 public class TVShow {
 
     private String title;
+
     private String genre;
+
     private String releaseYear;
-    private int duration;
-    private double rating;
+
+    private String duration;
+
+    private String rating;
+
     ArrayList<String> cast = new ArrayList();
 
     Scanner input = new Scanner(System.in);
@@ -43,21 +48,23 @@ public class TVShow {
         return releaseYear;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 
-    public int getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setRating(double rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 
-    public double getRating() {
+    public String getRating() {
         return rating;
     }
+
+
 
     public void casts(){
 
@@ -80,24 +87,25 @@ public class TVShow {
     }
 
 
+
     public void TVShow(){
 
-        System.out.println("Enter title:");
+        System.out.println("Enter Title:");
         setTitle(input.nextLine());
 
-        System.out.println("Enter genre:");
+        System.out.println("Enter Genre:");
         setGenre(input.nextLine());
 
-        System.out.println("Enter release date:");
+        System.out.println("Enter Release Year:");
         setReleaseYear(input.nextLine());
 
-        System.out.println("Enter duration:");
-        setDuration(input.nextInt());
+        System.out.println("Enter Duration:");
+        setDuration(input.nextLine());
 
-        System.out.println("Enter rating");
-        setRating(input.nextDouble());
+        System.out.println("Enter Rating:");
+        setRating(input.nextLine());
 
-        System.out.println("Enter cast members (when finished, press 'o'):");
+        System.out.println("Enter Cast Members (When Finished , Press 'o'):");
         casts();
 
     }

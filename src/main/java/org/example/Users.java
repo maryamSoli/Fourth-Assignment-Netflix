@@ -11,61 +11,93 @@ import java.util.Scanner;
 public class Users {
 
     ArrayList<User> theUsers = new ArrayList();
+
     ArrayList<TVShow> favoriteTVshows = new ArrayList();
+
     ArrayList<Movie> favoriteMovies = new ArrayList();
+
     ArrayList<TVShow> watchHistoryTVshows = new ArrayList();
+
     ArrayList<Movie> watchHistoryMovies = new ArrayList();
+
     Scanner input = new Scanner(System.in);
 
-    public void createAccount(User u){
-
-        for (User i : theUsers) {
-
-            if (u.getPassWord().equals(i)){
-
-                System.out.println("user of password " + u.getPassWord() + " is Already Registered.");
-
-            }
-
-        }
-
-        theUsers.add(u);
-
-    }
-
-
-    public int login(){
-
-        System.out.println("Enter password:");
+    public void createAccount(){
 
         User u = new User();
 
-        u.setPassWord(input.nextLine());
+        int flag = 0;
 
-        for (User i : theUsers){
+        for (User i : theUsers) {
 
-            if (u.getPassWord().equals(i)){
+            if (u.getPassWord().equals(i.getPassWord())){
 
-                return 2;
+                System.out.println("user with password " + u.getPassWord() + " is Already Registered.");
+
+                flag++;
+
+            }
+
+            if (u.getUserName().equals(i.getUserName())){
+
+                System.out.println("user with user name " + u.getUserName() + "is already registered");
+
+                flag++;
 
             }
 
         }
 
+        if (flag == 0){
 
-        System.out.println("user is not Registered.");
+            theUsers.add(u);
 
-        System.out.println("Get Registered First.");
+            System.out.println("Account Created !");
+        }
 
-        return -1;
 
     }
+
+
+
+
+
+    public void login(){
+
+        User u = new User();
+
+        int flag = 0;
+
+        for (User i : theUsers) {
+
+            if (u.getUserName().equals(i.getUserName()) && u.getPassWord().equals(i.getPassWord())) {
+
+                System.out.println("Login Successfully!");
+
+                flag++;
+            }
+
+        }
+
+        if (flag == 0){
+
+            System.out.println("User is not Registered.");
+
+            System.out.println("Create Account First.");
+        }
+
+    }
+
+
+
+
+
 
     public void addToFavoritesTVshows(TVShow show , NetflixService TVshows) {
 
         System.out.println("enter the title of your favorite tvshow from tvshow list to add to your favorite list");
 
-        System.out.println("title - genre - release date - duration - rating - cast");
+        //System.out.println("title - genre - release date - duration - rating - cast");
 
         TVshows.showAllTVshows();
 
@@ -73,12 +105,17 @@ public class Users {
 
         for (TVShow i : TVshows.theTVshows ){
 
-            if (title == i.getTitle()){
+            if (i.getTitle().equalsIgnoreCase(title)){
 
                 favoriteTVshows.add(i);
             }
+
         }
+
     }
+
+
+
 
     public void removeFromFavoritesTVshows(TVShow show , NetflixService shows) {
 
@@ -90,12 +127,19 @@ public class Users {
 
         for (TVShow i : favoriteTVshows){
 
-            if (title == i.getTitle()){
+            if (i.getTitle().equalsIgnoreCase(title)){
 
                 favoriteTVshows.remove(i);
             }
+
         }
+
     }
+
+
+
+
+
     public void viewFavoritesTVshows() {
 
         for (TVShow i : favoriteTVshows ){
@@ -105,13 +149,17 @@ public class Users {
             System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast);
 
         }
+
     }
 
-    public void addToFavoritesMovies(Movie movie , NetflixService movies) {
+
+
+
+    public void addToFavoritesMovies(TVShow movie , NetflixService movies) {
 
         System.out.println("enter the title of your favorite movie from movie list to add to your favorite list");
 
-        System.out.println("title - genre - release date - duration - rating - cast - length");
+       // System.out.println("title - genre - release date - duration - rating - cast - length");
 
         movies.showAllMovies();
 
@@ -119,14 +167,19 @@ public class Users {
 
         for (Movie i : movies.theMovies ){
 
-            if (title == i.getTitle()){
+            if (i.getTitle().equalsIgnoreCase(title)){
 
                 favoriteMovies.add(i);
             }
+
         }
+
     }
 
-    public void removeFromFavoritesMovies(Movie movie , NetflixService movies) {
+
+
+
+    public void removeFromFavoritesMovies(TVShow movie , NetflixService movies) {
 
         System.out.println("enter the title of the movie that you want to remove from your favorite list");
 
@@ -136,12 +189,17 @@ public class Users {
 
         for (Movie i : favoriteMovies){
 
-            if (title == i.getTitle()){
+            if (i.getTitle().equalsIgnoreCase(title)){
 
                 favoriteMovies.remove(i);
             }
+
         }
+
     }
+
+
+
     public void viewFavoritesMovies() {
 
         for (Movie i : favoriteMovies ){
@@ -151,7 +209,11 @@ public class Users {
             System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast + "\t\t" + i.getLength());
 
         }
+
     }
+
+
+
 
     public void TVshowSearchByTitleFavorites(){
 
@@ -169,13 +231,14 @@ public class Users {
 
         for (TVShow i : favoriteTVshows ){
 
-            if (i.getTitle() == title){
+            if (i.getTitle().equalsIgnoreCase(title)){
 
                 System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast);
 
                 flag++;
 
             }
+
         }
 
         if (flag == 0){
@@ -184,6 +247,9 @@ public class Users {
         }
 
     }
+
+
+
 
     public void TVshowSearchByGenreFavorites(){
 
@@ -201,7 +267,7 @@ public class Users {
 
         for (TVShow i : favoriteTVshows ){
 
-            if (i.getGenre() == genre){
+            if (i.getGenre().equalsIgnoreCase(genre)){
 
                 System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast);
 
@@ -216,6 +282,9 @@ public class Users {
         }
 
     }
+
+
+
 
     public void TVshowSearchByReleaseYearFavorites(){
 
@@ -233,13 +302,14 @@ public class Users {
 
         for (TVShow i : favoriteTVshows ){
 
-            if (i.getReleaseYear() == releaseYear){
+            if (i.getReleaseYear().equalsIgnoreCase(releaseYear)){
 
                 System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast);
 
                 flag++;
 
             }
+
         }
 
         if (flag == 0){
@@ -248,6 +318,8 @@ public class Users {
         }
 
     }
+
+
 
 
 
@@ -267,7 +339,7 @@ public class Users {
 
         for (Movie i : favoriteMovies ){
 
-            if (i.getReleaseYear() == title){
+            if (i.getTitle().equalsIgnoreCase(title)){
 
                 System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast + "\t\t" + i.getLength());
 
@@ -282,6 +354,9 @@ public class Users {
         }
 
     }
+
+
+
 
     public void MovieSearchByGenreFavorites(){
 
@@ -299,7 +374,7 @@ public class Users {
 
         for (Movie i : favoriteMovies ){
 
-            if (i.getGenre() == genre){
+            if (i.getGenre().equalsIgnoreCase(genre)){
 
                 System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast + "\t\t" + i.getLength());
 
@@ -314,6 +389,9 @@ public class Users {
         }
 
     }
+
+
+
 
     public void MovieSearchByReleaseYearFavorites(){
 
@@ -331,7 +409,7 @@ public class Users {
 
         for (Movie i : favoriteMovies ){
 
-            if (i.getReleaseYear() == releaseYear){
+            if (i.getReleaseYear().equalsIgnoreCase(releaseYear)){
 
                 System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast + "\t\t" + i.getLength());
 
@@ -346,6 +424,10 @@ public class Users {
         }
 
     }
+
+
+
+
 
     public void getRecommendationBasedOnGenreTVshow(NetflixService show){
 
@@ -364,7 +446,7 @@ public class Users {
 
             for (String j : GenresExistingInTVshowFavoriteList ){
 
-                if (j == i.getGenre()){
+                if (i.getGenre().equalsIgnoreCase(j)){
 
                     System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast);
 
@@ -372,6 +454,8 @@ public class Users {
             }
         }
     }
+
+
 
     public void getRecommendationBasedOnGenreMovie(NetflixService movie){
 
@@ -390,7 +474,7 @@ public class Users {
 
             for (String j : GenresExistingInMoviesFavoriteList ){
 
-                if (j == i.getGenre()){
+                if (i.getGenre().equalsIgnoreCase(j)){
 
                     System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast + "\t\t" + i.getLength());
 
@@ -398,6 +482,9 @@ public class Users {
             }
         }
     }
+
+
+
 
 
     public  void watchTVshow (NetflixService show){
@@ -410,7 +497,7 @@ public class Users {
 
         for (TVShow i : show.theTVshows){
 
-            if (title == i.getTitle()){
+            if (i.getTitle().equalsIgnoreCase(title)){
 
                 System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast);
 
@@ -418,6 +505,10 @@ public class Users {
             }
         }
     }
+
+
+
+
 
     public void showWatchingHistoryForTVshows(){
 
@@ -431,6 +522,10 @@ public class Users {
         }
     }
 
+
+
+
+
     public  void watchMovie (NetflixService movie){
 
         System.out.println("ENTER THE TITLE OF MOVIE THAT YOU WANT TO WATCH ");
@@ -441,7 +536,7 @@ public class Users {
 
         for (Movie i : movie.theMovies){
 
-            if (title == i.getTitle()){
+            if (i.getTitle().equalsIgnoreCase(title)){
 
                 System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast + "\t\t" + i.getLength());
 
@@ -449,6 +544,9 @@ public class Users {
             }
         }
     }
+
+
+
 
     public void showWatchingHistoryForMovies(){
 

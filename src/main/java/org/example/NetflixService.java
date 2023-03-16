@@ -9,8 +9,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class NetflixService {
+
     ArrayList<TVShow> theTVshows = new ArrayList();
+
     ArrayList<Movie> theMovies = new ArrayList();
+
     Scanner input = new Scanner(System.in);
 
 
@@ -19,7 +22,7 @@ class NetflixService {
 
         if (t1.getTitle().equalsIgnoreCase(t2.getTitle())){
 
-            System.out.println("tvshow of this title Already Exists.");
+            System.out.println("TV-show with this Title Already Exists.");
 
             return 0;
 
@@ -28,6 +31,9 @@ class NetflixService {
         return 1;
 
     }
+
+
+
     public void addTVShow(TVShow tvShow){
 
         for ( TVShow i : theTVshows) {
@@ -37,10 +43,8 @@ class NetflixService {
                 return;
 
         }
-        tvShow.TVShow();
+
         theTVshows.add(tvShow);
-
-
 
     }
 
@@ -48,7 +52,7 @@ class NetflixService {
 
         if (m1.getTitle().equalsIgnoreCase(m2.getTitle())){
 
-            System.out.println("Movie of this title Already Exists.");
+            System.out.println("Movie with this Title Already Exists.");
 
             return 0;
 
@@ -57,6 +61,9 @@ class NetflixService {
         return 1;
 
     }
+
+
+
 
     public void addMovie(Movie movie){
 
@@ -68,19 +75,20 @@ class NetflixService {
 
         }
 
-        movie.TVShow();
-
         theMovies.add(movie);
     }
 
 
+
+
+
     public void TVshowSearchByTitle(){
 
-        System.out.println("SEARCH BY TITLE tvshow");
+        System.out.println("SEARCH BY TITLE TV-SHOW");
 
         String title;
 
-        System.out.println("Enter title of TVshow:");
+        System.out.println("Enter Title of TV-show:");
 
         title = input.nextLine();
 
@@ -90,7 +98,7 @@ class NetflixService {
 
         for (TVShow i : theTVshows ){
 
-            if (i.getTitle() == title){
+            if (i.getTitle().equalsIgnoreCase(title)){
 
                 System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast);
 
@@ -99,20 +107,23 @@ class NetflixService {
             }
         }
 
-        if (flag == 0){
+            if (flag == 0){
 
-            System.out.println("TVshow with title " + title + " not Found.");
-        }
+                System.out.println("TV-show with Title " + title + " not Found.");
+            }
 
     }
 
+
+
+
     public void TVshowSearchByGenre(){
 
-        System.out.println("SEARCH BY GENRE tvshow");
+        System.out.println("SEARCH BY GENRE TV-SHOW");
 
         String genre;
 
-        System.out.println("Enter genre of TVshow:");
+        System.out.println("Enter Genre of TV-show:");
 
         genre = input.nextLine();
 
@@ -122,7 +133,7 @@ class NetflixService {
 
         for (TVShow i : theTVshows ){
 
-            if (i.getGenre() == genre){
+            if (i.getGenre().equalsIgnoreCase(genre)){
 
                 System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast);
 
@@ -133,18 +144,22 @@ class NetflixService {
 
         if (flag == 0){
 
-            System.out.println("TVshow with genre " + genre + " not Found.");
+            System.out.println("TVshow with Genre " + genre + " not Found.");
         }
 
     }
 
+
+
+
+
     public void TVshowSearchByReleaseYear(){
 
-        System.out.println("SEARCH BY RELEASE YEAR tvshow");
+        System.out.println("SEARCH BY RELEASE YEAR TV-SHOW");
 
         String releaseYear;
 
-        System.out.println("Enter release year of TVshow:");
+        System.out.println("Enter Release Year of TV-show:");
 
         releaseYear = input.nextLine();
 
@@ -154,7 +169,7 @@ class NetflixService {
 
         for (TVShow i : theTVshows ){
 
-            if (i.getReleaseYear() == releaseYear){
+            if (i.getReleaseYear().equalsIgnoreCase(releaseYear)){
 
                 System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast);
 
@@ -165,20 +180,22 @@ class NetflixService {
 
         if (flag == 0){
 
-            System.out.println("TVshow with release year " + releaseYear + " not Found.");
+            System.out.println("TV-show with Release Year " + releaseYear + " not Found.");
         }
 
     }
 
 
 
+
+
     public void MovieSearchByTitle(){
 
-        System.out.println("SEARCH BY TITLE movie");
+        System.out.println("SEARCH BY TITLE MOVIE");
 
         String title;
 
-        System.out.println("Enter title of Movie:");
+        System.out.println("Enter Title of Movie:");
 
         title = input.nextLine();
 
@@ -188,7 +205,7 @@ class NetflixService {
 
         for (Movie i : theMovies ){
 
-            if (i.getReleaseYear() == title){
+            if (i.getTitle().equalsIgnoreCase(title)){
 
                 System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast + "\t\t" + i.getLength());
 
@@ -199,18 +216,21 @@ class NetflixService {
 
         if (flag == 0){
 
-            System.out.println("Movie with title " + title + " not Found.");
+            System.out.println("Movie with Title " + title + " not Found.");
         }
 
     }
 
+
+
+
     public void MovieSearchByGenre(){
 
-        System.out.println("SEARCH BY GENRE movie");
+        System.out.println("SEARCH BY GENRE MOVIE");
 
         String genre;
 
-        System.out.println("Enter genre of Movie:");
+        System.out.println("Enter Genre of Movie:");
 
         genre = input.nextLine();
 
@@ -220,7 +240,7 @@ class NetflixService {
 
         for (Movie i : theMovies ){
 
-            if (i.getGenre() == genre){
+            if (i.getGenre().equalsIgnoreCase(genre)){
 
                 System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast + "\t\t" + i.getLength());
 
@@ -236,13 +256,17 @@ class NetflixService {
 
     }
 
+
+
+
+
     public void MovieSearchByReleaseYear(){
 
-        System.out.println("SEARCH BY RELEASE YEAR movie");
+        System.out.println("SEARCH BY RELEASE YEAR MOVIE");
 
         String releaseYear;
 
-        System.out.println("Enter release year of Movie:");
+        System.out.println("Enter Release Year of Movie:");
 
         releaseYear = input.nextLine();
 
@@ -252,7 +276,7 @@ class NetflixService {
 
         for (Movie i : theMovies ){
 
-            if (i.getReleaseYear() == releaseYear){
+            if (i.getReleaseYear().equalsIgnoreCase(releaseYear)){
 
                 System.out.println(i.getTitle() + "\t\t" + i.getGenre() + "\t\t" + i.getReleaseYear() + "\t\t" + i.getDuration() + "\t\t" + i.getRating() + "\t\t" + i.cast + "\t\t" + i.getLength());
 
@@ -263,16 +287,16 @@ class NetflixService {
 
         if (flag == 0){
 
-            System.out.println("Movie with release year " + releaseYear + " not Found.");
+            System.out.println("Movie with Release Year " + releaseYear + " not Found.");
         }
 
     }
 
     public void showAllTVshows(){
 
-        System.out.println("SHOWING ALL TVSHOWS");
+        System.out.println("SHOWING ALL TV-SHOWS");
 
-        System.out.println("title - genre - release date - duration - rating - cast");
+        System.out.println("title - genre - release year - duration - rating - cast");
 
         for (TVShow i : theTVshows ) {
 
@@ -282,11 +306,14 @@ class NetflixService {
 
     }
 
+
+
+
     public void showAllMovies(){
 
-        System.out.println("SHOWING ALL Movies");
+        System.out.println("SHOWING ALL MOVIES");
 
-        System.out.println("title - genre - release date - duration - rating - cast - length");
+        System.out.println("title - genre - release year - duration - rating - cast - length");
 
         for (Movie i : theMovies ) {
 

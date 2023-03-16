@@ -6,10 +6,10 @@ public class Main {
     //don't limit yourself to our template ***
     static int movieOrTVshowChoice;
 
-  // static TVShow t = new TVShow();
-
-   //static Movie m = new Movie();
     static Scanner input = new Scanner(System.in);
+
+
+
     public static void main(String[] args) {
 
         NetflixService Nobj = new NetflixService();
@@ -36,12 +36,19 @@ public class Main {
 
                     if (movieOrTVshowChoice == 1) {
 
-
                         TVShow t = new TVShow();
 
+                        t.TVShow();
+
                         Nobj.addTVShow(t);
-                    } else {
+
+                    }
+
+                    else {
+
                         Movie m = new Movie();
+
+                        m.TVShow();
 
                         Nobj.addMovie(m);
                     }
@@ -81,7 +88,9 @@ public class Main {
                                 break;
                         }
 
-                    } else {
+                    }
+
+                    else {
 
                         System.out.println("press 1 to search with TITLE");
                         System.out.println("press 2 to search with GENRE");
@@ -121,7 +130,9 @@ public class Main {
                     if (movieOrTVshowChoice == 1) {
 
                         Nobj.showAllTVshows();
-                    } else {
+                    }
+
+                    else {
 
                         Nobj.showAllMovies();
                     }
@@ -130,9 +141,7 @@ public class Main {
 
                 case 4:
 
-                    User u = new User();
-
-                    Uobj.createAccount(u);
+                    Uobj.createAccount();
 
                     break;
 
@@ -155,8 +164,10 @@ public class Main {
                     }
 
                     else {
-                        Movie m = new Movie();
-                        Uobj.addToFavoritesMovies(m , Nobj);
+
+                        TVShow t = new TVShow();
+
+                        Uobj.addToFavoritesMovies(t , Nobj);
                     }
 
                     break;
@@ -173,8 +184,10 @@ public class Main {
                     }
 
                     else {
-                        Movie m = new Movie();
-                        Uobj.removeFromFavoritesMovies(m , Nobj);
+
+                        TVShow t = new TVShow();
+
+                        Uobj.removeFromFavoritesMovies(t , Nobj);
                     }
 
                     break;
@@ -214,7 +227,9 @@ public class Main {
 
                         }
 
-                    } else {
+                    }
+
+                    else {
 
                         System.out.println("press 1 to search with TITLE");
                         System.out.println("press 2 to search with GENRE");
@@ -256,7 +271,9 @@ public class Main {
                     if (movieOrTVshowChoice == 1) {
 
                         Uobj.watchTVshow(Nobj);
-                    } else {
+                    }
+
+                    else {
 
                         Uobj.watchMovie(Nobj);
 
@@ -271,16 +288,33 @@ public class Main {
                     if (movieOrTVshowChoice == 1) {
 
                         Uobj.showWatchingHistoryForTVshows();
-                    } else {
+                    }
+
+                    else {
                         Uobj.showWatchingHistoryForMovies();
 
                     }
                     break;
 
+                case 11:
+
+                    movieOrTVshowMenu();
+
+                    if (movieOrTVshowChoice == 1) {
+
+                        Uobj.getRecommendationBasedOnGenreTVshow(Nobj);
+                    }
+
+                    else {
+
+                        Uobj.getRecommendationBasedOnGenreMovie(Nobj);
+                    }
+
+                    break;
+
                 default:
 
                     System.out.println("Thanks for Choosing Us !");
-
 
             }
 
@@ -289,7 +323,7 @@ public class Main {
 
             while (choice != 0) ;
 
-        }
+    }
 
 
 
@@ -307,9 +341,13 @@ public class Main {
         System.out.println("Press 8 to Search a TVshow or movie in favorite list.");
         System.out.println("Press 9 to watch.");
         System.out.println("Press 10 to see watching history.");
+        System.out.println("Press 11 to get Recommendations for TVshow or movie.");
         System.out.println("Press 0 to logout");
         System.out.println("-------------------------------------------------------------------------------------------------------");
     }
+
+
+
 
     public static void movieOrTVshowMenu() {
 
@@ -319,6 +357,8 @@ public class Main {
 
         movieOrTVshowChoice = input.nextInt();
     }
+
+    
 
 }
 

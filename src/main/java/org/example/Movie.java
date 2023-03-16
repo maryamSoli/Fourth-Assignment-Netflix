@@ -7,26 +7,22 @@ import java.util.Scanner;
 
 class Movie extends TVShow {
 
-    private int length;
+    private String length;
 
     Scanner input = new Scanner(System.in);
 
-    public void setLength(int length) {
+    public void setLength(String length) {this.length = length;}
 
-        this.length = length;
-    }
+    public String getLength() {return length;}
 
-    public int getLength() {
 
-        return length;
-    }
 
-    public Movie()
-    {
+    public Movie() {
+
         super();
 
-        System.out.println("Enter length");
-        setLength(input.nextInt());
+        System.out.println("Enter Length:");
+        setLength(input.nextLine());
 
     }
 
